@@ -1,19 +1,15 @@
 package jp.co.who.lamdba
 
-import scala.collection.JavaConverters._
-//import com.amazonaws.services.lambda.runtime.Context
+import com.amazonaws.services.lambda.runtime.{Context, LambdaLogger, RequestHandler}
 
-object SlackPost extends SampleBase {
+object SlackPost extends SampleBase
 
-  def sample(): Unit = {
-  }
+trait SampleBase
+  extends RequestHandler[Int, String] {
 
-}
-
-trait SampleBase {
-
-  def sample(myCount: Int, context: Any): java.util.List[String] = {
-    println("Hello World!!")
-    List("%d".format(myCount)).asJava
+  def handleRequest(myCount: Int, context: Context): String = {
+    val logger: LambdaLogger = context.getLogger
+    logger.log(s"received : ${myCount}")
+    myCount.toString
   }
 }

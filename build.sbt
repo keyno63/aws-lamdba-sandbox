@@ -5,7 +5,12 @@ lazy val lamdba_tool = (project in file("."))
   .enablePlugins(JavaAppPackaging)
   .settings(
     name := "lamdba_tool",
-    libraryDependencies ++= jsonModule
+    libraryDependencies ++=
+      jsonModule ++
+        Seq(
+          "com.amazonaws" % "aws-lambda-java-core" % "1.0.0",
+          "com.amazonaws" % "aws-lambda-java-events" % "1.1.0",
+        )
   )
 
 val versions = Map(
