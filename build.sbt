@@ -21,5 +21,4 @@ val jsonModule = Seq(
   "io.circe" %% "circe-core",
   "io.circe" %% "circe-generic",
   "io.circe" %% "circe-parser",
-).map(_ % versions("circe")) :+
-  ("com.dripower" %% "play-circe" % "2712.0")
+).map(_ % versions("circe"))
