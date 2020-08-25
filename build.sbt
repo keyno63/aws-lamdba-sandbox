@@ -9,16 +9,16 @@ lazy val lamdba_tool = (project in file("."))
       jsonModule ++
         Seq(
           "com.amazonaws" % "aws-lambda-java-core" % "1.0.0",
-          "com.amazonaws" % "aws-lambda-java-events" % "1.1.0",
+          "com.amazonaws" % "aws-lambda-java-events" % "1.1.0"
         )
   )
 
 val versions = Map(
-  "circe" -> "0.12.1",
+  "circe" -> "0.12.1"
 )
 
 val jsonModule = Seq(
   "io.circe" %% "circe-core",
   "io.circe" %% "circe-generic",
-  "io.circe" %% "circe-parser",
+  "io.circe" %% "circe-parser"
 ).map(_ % versions("circe"))
