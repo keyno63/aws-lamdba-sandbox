@@ -28,7 +28,8 @@ lazy val `java-sample` = (project in file("./java-sample"))
 
       "com.novocode" % "junit-interface" % "0.11" % Test,
 
-      "org.mockito" % "mockito-core" % "3.5.6" % Test
+      "org.mockito" % "mockito-core" % "3.5.6" % Test,
+      "org.mockito" % "mockito-junit-jupiter" % "3.5.6" % Test
     ),
     javacOptions ++= Seq("-source", "11", "-target", "11"),
     autoScalaLibrary := false
