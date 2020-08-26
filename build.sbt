@@ -12,12 +12,22 @@ lazy val `scala-sample` = (project in file("./scala-sample"))
   .settings(
     name := "scala-sample",
     libraryDependencies ++=
-      jsonModule ++
-        Seq(
-          "com.amazonaws" % "aws-lambda-java-core" % "1.0.0",
-          "com.amazonaws" % "aws-lambda-java-events" % "1.1.0"
-        )
+      jsonModule ++ awsTools,
+    javacOptions ++= Seq("-source", "11", "-target", "11"),
+    autoScalaLibrary := false
   )
+
+lazy val `java-sample` = (project in file("./java-sample"))
+  .enablePlugins(JavaAppPackaging)
+  .settings(
+    name := "java-sample",
+    libraryDependencies ++= awsTools
+  )
+
+val awsTools = Seq(
+  "com.amazonaws" % "aws-lambda-java-core" % "1.0.0",
+  "com.amazonaws" % "aws-lambda-java-events" % "1.1.0"
+)
 
 val versions = Map(
   "circe" -> "0.12.1"
