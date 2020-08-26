@@ -12,9 +12,7 @@ lazy val `scala-sample` = (project in file("./scala-sample"))
   .settings(
     name := "scala-sample",
     libraryDependencies ++=
-      jsonModule ++ awsTools,
-    javacOptions ++= Seq("-source", "11", "-target", "11"),
-    autoScalaLibrary := false
+      jsonModule ++ awsTools
   )
 
 lazy val `java-sample` = (project in file("./java-sample"))
@@ -22,6 +20,18 @@ lazy val `java-sample` = (project in file("./java-sample"))
   .settings(
     name := "java-sample",
     libraryDependencies ++= awsTools
+      ++ Seq(
+      "org.junit.platform" % "junit-platform-runner" % "1.6.2" % Test,
+      "org.junit.jupiter" % "junit-jupiter" % "5.6.2" % Test,
+      "org.junit.jupiter" % "junit-jupiter-engine" % "5.6.2" % Test,
+      "org.junit.vintage" % "junit-vintage-engine" % "5.6.2" % Test,
+
+      "com.novocode" % "junit-interface" % "0.11" % Test,
+
+      "org.mockito" % "mockito-core" % "3.5.6" % Test
+    ),
+    javacOptions ++= Seq("-source", "11", "-target", "11"),
+    autoScalaLibrary := false
   )
 
 val awsTools = Seq(
