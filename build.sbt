@@ -1,10 +1,10 @@
 import sbt._
 import sbt.Keys._
 
-lazy val `aws-lamdba-samdbox` = (project in file("."))
+lazy val `aws-lamdba-sandbox` = (project in file("."))
   .enablePlugins(JavaAppPackaging)
   .settings(
-    name := "aws-lamdba-samdbox"
+    name := "aws-lamdba-sandbox"
   )
 
 lazy val `scala-sample` = (project in file("./scala-sample"))
