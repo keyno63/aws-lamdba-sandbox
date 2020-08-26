@@ -1,3 +1,3 @@
-# aws-lamdba-samdbox
+# aws-lamdba-sandbox
 
 AWS Lamdba の砂場
